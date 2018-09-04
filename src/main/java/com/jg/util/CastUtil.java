@@ -8,9 +8,9 @@ public class CastUtil {
     /**
      * 将对象转为String类型
      * null对象转为defaultValue
-     * @param obj
-     * @param defaultValue
-     * @return
+     * @param obj   待转换对象
+     * @param defaultValue  默认值
+     * @return  String类型的对象
      */
     public static String castString(final Object obj, final String defaultValue) {
         return obj == null ? defaultValue : obj.toString();
@@ -19,8 +19,8 @@ public class CastUtil {
     /**
      * 将对象转为String类型
      * null对象转为""
-     * @param obj
-     * @return
+     * @param obj 待转换对象
+     * @return String类型的对象
      */
     public static String castString(final Object obj) {
         return castString(obj, StringUtil.EMPTY);
@@ -29,9 +29,9 @@ public class CastUtil {
     /**
      * 将对象转为double类型
      * null对象转为defaultValue
-     * @param obj
-     * @param defaultValue
-     * @return
+     * @param obj   待转换对象
+     * @param defaultValue  默认值
+     * @return  double类型的对象
      */
     public static double castDouble(final Object obj, final double defaultValue) {
         if (obj == null) {
@@ -47,8 +47,8 @@ public class CastUtil {
     /**
      * 将对象转为double类型
      * null对象转为0
-     * @param obj
-     * @return
+     * @param obj   待转换对象
+     * @return  double类型的对象
      */
     public static double castDouble(final Object obj) {
         return castDouble(obj, 0);
@@ -57,9 +57,9 @@ public class CastUtil {
     /**
      * 将对象转为float类型
      * null对象转为defaultValue
-     * @param obj
-     * @param defaultValue
-     * @return
+     * @param obj   待转换对象
+     * @param defaultValue  默认值
+     * @return  float类型的对象
      */
     public static float castFloat(final Object obj, final float defaultValue) {
         if (obj == null) {
@@ -75,8 +75,8 @@ public class CastUtil {
     /**
      * 将对象转为float类型
      * null对象转为0
-     * @param obj
-     * @return
+     * @param obj   待转换对象
+     * @return  float类型的对象
      */
     public static float castFloat(final Object obj) {
         return castFloat(obj, 0);
@@ -85,9 +85,9 @@ public class CastUtil {
     /**
      * 将对象转为long类型
      * null对象转为defaultValue
-     * @param obj
-     * @param defaultValue
-     * @return
+     * @param obj   待转换对象
+     * @param defaultValue  默认值
+     * @return  long类型的对象
      */
     public static long castLong(final Object obj, final long defaultValue) {
         return (long) castDouble(obj, defaultValue);
@@ -96,8 +96,8 @@ public class CastUtil {
     /**
      * 将对象转为long类型
      * null对象转为0
-     * @param obj
-     * @return
+     * @param obj   待转换对象
+     * @return  long类型的对象
      */
     public static long castLong(final Object obj) {
         return castLong(obj, 0);
@@ -106,9 +106,9 @@ public class CastUtil {
     /**
      * 将对象转为int类型
      * null对象转为defaultValue
-     * @param obj
-     * @param defaultValue
-     * @return
+     * @param obj   待转换对象
+     * @param defaultValue  默认值
+     * @return  int类型的对象
      */
     public static int castInt(final Object obj, final int defaultValue) {
         return (int) castDouble(obj, defaultValue);
@@ -117,8 +117,8 @@ public class CastUtil {
     /**
      * 将对象转为int类型
      * null对象转为0
-     * @param obj
-     * @return
+     * @param obj   待转换对象
+     * @return  int类型的对象
      */
     public static int castInt(final Object obj) {
         return castInt(obj, 0);
@@ -127,9 +127,9 @@ public class CastUtil {
     /**
      * 将对象转为short类型
      * null对象转为defaultValue
-     * @param obj
-     * @param defaultValue
-     * @return
+     * @param obj   待转换对象
+     * @param defaultValue  默认值
+     * @return  short类型的对象
      */
     public static short castShort(final Object obj, final short defaultValue) {
         return (short) castDouble(obj, defaultValue);
@@ -138,8 +138,8 @@ public class CastUtil {
     /**
      * 将对象转为short类型
      * null对象转为0
-     * @param obj
-     * @return
+     * @param obj   待转换对象
+     * @return  short类型的对象
      */
     public static short castShort(final Object obj) {
         return castShort(obj, (short) 0);
@@ -148,9 +148,9 @@ public class CastUtil {
     /**
      * 将对象转为boolean类型
      * null对象转为defaultValue
-     * @param obj
-     * @param defaultValue
-     * @return
+     * @param obj   待转换对象
+     * @param defaultValue  默认值
+     * @return  boolean类型的对象
      */
     public static boolean castBoolean(Object obj, boolean defaultValue) {
         if (obj == null) {
@@ -167,21 +167,18 @@ public class CastUtil {
      * 将double对象转为boolean类型
      * 0 返回false
      * 其它值返回true
-     * @param d
-     * @return
+     * @param d 待转换对象
+     * @return  boolean类型的对象
      */
     public static boolean castBoolean(double d) {
-        if (d == 0) {
-            return false;
-        }
-        return true;
+        return (d != 0);
     }
 
     /**
      * 将对象转为boolean类型
      * null对象转为true
-     * @param obj
-     * @return
+     * @param obj   待转换对象
+     * @return  boolean类型的对象
      */
     public static boolean castBooleanDefaultTrue(Object obj) {
         return castBoolean(obj, true);
@@ -190,8 +187,8 @@ public class CastUtil {
     /**
      * 将对象转为boolean类型
      * null对象转为false
-     * @param obj
-     * @return
+     * @param obj   待转换对象
+     * @return  boolean类型的对象
      */
     public static boolean castBooleanDefaultFalse(Object obj) {
         return castBoolean(obj, false);
