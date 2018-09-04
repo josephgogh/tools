@@ -1,5 +1,8 @@
 package com.jg.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 字符串操作类
  */
@@ -14,6 +17,13 @@ public class StringUtil {
      * 未查找到字符串出现的位置
      */
     public final static int INDEX_NOT_FOUND = -1;
+
+    /**
+     * 将构造函数设置为私有的，不能被实例化，并且在被调用的时候抛出异常
+     */
+    private StringUtil() {
+        throw new RuntimeException("工具表不能被实例化！");
+    }
 
     /**
      * 判断字符串是否为空（""）或null
@@ -288,5 +298,166 @@ public class StringUtil {
         }
         return str.substring(start, end);
     }
+
+    /**
+     * 从左边开始截取len个字符
+     * @param str
+     * @param len
+     * @return
+     */
+    public static String left(final String str, final int len) {
+        if (str == null) {
+            return null;
+        }
+        if (len < 0) {
+            return EMPTY;
+        }
+        if (str.length() <= len) {
+            return str;
+        }
+        return str.substring(0, len);
+    }
+
+    /**
+     * 从右边开始截取len个字符串
+     * @param str
+     * @param len
+     * @return
+     */
+    public static String right(final String str, final int len) {
+        if (str == null) {
+            return null;
+        }
+        if (len < 0) {
+            return EMPTY;
+        }
+        if (str.length() <= len) {
+            return str;
+        }
+        return str.substring(str.length() - len);
+    }
+
+    /**
+     * 从第pos个字符开始截取长度为len的字符串
+     * @param str
+     * @param pos
+     * @param len
+     * @return
+     */
+    public static String mid(final String str, int pos, final int len) {
+        if (str == null) {
+            return null;
+        }
+        if (len < 0 || pos > str.length()) {
+            return EMPTY;
+        }
+        if (pos < 0) {
+            pos = 0;
+        }
+        if (str.length() <= pos + len) {
+            return str.substring(pos);
+        }
+        return str.substring(pos, pos + len);
+    }
+
+    /**
+     * 截取str中第一次出现separator之前的内容
+     * @param str
+     * @param separator
+     * @return
+     */
+    public static String substringBefore(final String str, final String separator) {
+        if (isEmpty(str) || separator == null) {
+            return str;
+        }
+        if (separator.isEmpty()) {
+            return EMPTY;
+        }
+        final int pos = str.indexOf(separator);
+        if (pos == INDEX_NOT_FOUND) {
+            return str;
+        }
+        return str.substring(0, pos);
+    }
+
+    /**
+     * 截取str中第一次出现separator之后的内容
+     * @param str
+     * @param separator
+     * @return
+     */
+    public static String substringAfter(final String str, final String separator) {
+        if (isEmpty(str)) {
+            return str;
+        }
+        if (separator == null) {
+            return EMPTY;
+        }
+        final int pos = str.indexOf(separator);
+        if (pos == INDEX_NOT_FOUND) {
+            return EMPTY;
+        }
+        return str.substring(pos + separator.length());
+    }
+
+    /**
+     * 截取str中最后一次出现separator之前的内容
+     * @param str
+     * @param separator
+     * @return
+     */
+    public static String substringBeforeLast(final String str, final String separator) {
+        if (isEmpty(str) || isEmpty(separator)) {
+            return str;
+        }
+        final int pos = str.lastIndexOf(separator);
+        if (pos == INDEX_NOT_FOUND) {
+            return str;
+        }
+        return str.substring(0, pos);
+    }
+
+    /**
+     * 截取str中最后一次出现separator之后的内容
+     * @param str
+     * @param separator
+     * @return
+     */
+    public static String substringAfterLast(final String str, final String separator) {
+        if (isEmpty(str)) {
+            return str;
+        }
+        if (isEmpty(separator)) {
+            return EMPTY;
+        }
+        final int pos = str.lastIndexOf(separator);
+        if (pos == INDEX_NOT_FOUND || pos == str.length() - separator.length()) {
+            return EMPTY;
+        }
+        return str.substring(pos + separator.length());
+    }
+
+    /**
+     * 截取str中open之后close之前的内容
+     * @param str
+     * @param open
+     * @param close
+     * @return
+     */
+    public static String substringBetween(final String str, final String open, final String close) {
+        if (str == null || open == null || close == null) {
+            return null;
+        }
+        final int start = str.indexOf(open);
+        if (start != INDEX_NOT_FOUND) {
+            final int end = str.indexOf(close, start + open.length());
+            if (end != INDEX_NOT_FOUND) {
+                return str.substring(start + open.length(), end);
+            }
+        }
+        return null;
+    }
+
+
 
 }
