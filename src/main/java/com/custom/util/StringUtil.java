@@ -1,7 +1,4 @@
-package com.jg.util;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.custom.util;
 
 /**
  * 字符串操作类

@@ -1,4 +1,4 @@
-package com.jg.util;
+package com.custom.util;
 
 /**
  * 转型操作工具类
