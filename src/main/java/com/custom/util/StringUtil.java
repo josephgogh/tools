@@ -1,5 +1,7 @@
 package com.custom.util;
 
+import com.custom.exception.CustomException;
+
 /**
  * 字符串操作类
  */
@@ -15,11 +17,8 @@ public class StringUtil {
      */
     private final static int INDEX_NOT_FOUND = -1;
 
-    /**
-     * 将构造函数设置为私有的，不能被实例化，并且在被调用的时候抛出异常
-     */
     private StringUtil() {
-        throw new RuntimeException("工具表不能被实例化！");
+        CustomException.throwException("工具类不能实例化！");
     }
 
     /**

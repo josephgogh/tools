@@ -1,9 +1,18 @@
 package com.custom.util;
 
+import com.custom.exception.CustomException;
+
 /**
  * 转型操作工具类
  */
 public class CastUtil {
+
+    /**
+     * 私有化构造函数
+     */
+    private CastUtil() {
+        CustomException.throwException("工具类不能实例化！");
+    }
 
     /**
      * 将对象转为String类型
